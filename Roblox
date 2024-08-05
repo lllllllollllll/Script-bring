@@ -19,7 +19,15 @@ if game.PlaceId == 4032944086 then
     _G.AutoMoney = true 
     _G.AutoGem = true
     _G.AutoKing = true
+    _G.AutoAirDrop = true
   --functions 
+  function AutoAirDrop()
+    while _AutoAirDrop == true do
+         TPTo(game:GetService("Workspace").Airdrops.Spawns.SpawnPart..CFrame)
+        wait(3)
+    end
+end
+  
   function AutoKing()
     while _G.AutoKing == true do
          TPTo(game:GetService("Workspace").Islands.KOTHIsland.KothArena.KothArenabase.CFrame)
@@ -232,6 +240,11 @@ end
   FarmTab:AddToggle({ Name = "Auto King :) ", Default = false, Callback = function(Value)
         _G.AutoKing = Value
         coroutine.wrap(AutoKing)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  FarmTab:AddToggle({ Name = "Auto Air drop ", Default = false, Callback = function(Value)
+        _G.AutoAirDrop = Value
+        coroutine.wrap(AutoAirDrop)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
 
     --buttons
