@@ -1,0 +1,251 @@
+--keep updating
+if game.PlaceId == 4032944086 then
+
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "All In One hub| 🦾Get Huge SM🦾", HidePremium = false, IntroText = "Loading 🦾Get Huge SM🦾 ", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+    --values
+    _G.autoTap = true
+    _G.autoSell = true
+    _G.autoSummer = true
+    _G.Fly = true-- Fly değişkenini tanımla
+    _G.AutoSellSummer = true
+    _G.Speed = true
+    _G.AutoAttack = true
+    _G.AutoStomp = true
+    _G.DestroyGui = true 
+    _G.HitBox = true
+    _G.Territory = true
+    _G.AutoMoney = true 
+    _G.AutoGem = true
+    _G.AutoKing = true
+  --functions 
+  function AutoKing()
+    while _G.AutoKing == true do
+         TPTo(game:GetService("Workspace").Islands.KOTHIsland.KothArena.KothArenabase.CFrame)
+        wait(3)
+    end
+end
+  
+  function AutoMoney()
+    while _G.AutoMoney == true do
+        local gemModel = game:GetService("Workspace").ConsumableSpawns.GemModel
+        TPTo(gemModel.CFrame)
+        wait(0.1)
+    end
+end
+
+function AutoGem()
+    while _G.AutoGem == true do
+        local coinModel = game:GetService("Workspace").ConsumableSpawns.CoinModel
+        TPTo(coinModel.CFrame)
+        wait(0.1)
+    end
+end
+
+  
+  function Territorial()
+    spawn(function ()
+        while _G.Territory == true do
+TPTo(game:GetService("Workspace").RingAreas.Territories.T1.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T2.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T3.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T4.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T5.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T6.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T7.CFrame) wait(20)
+TPTo(game:GetService("Workspace").RingAreas.Territories.T8.CFrame) wait(20)
+        end
+    end)
+end
+  
+   function Hitbox()
+        while _G.HitBox == true do
+          
+_G.HeadSize = 500
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 1
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+                     wait(1)
+        end
+    end
+  
+  function DestroyGui()
+  
+   OrionLib:Destroy()
+        end
+  
+  function AutoStomp()
+        while _G.AutoStomp == true do
+          local args = {
+    [1] = "Stomp",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.PVP.AttackAttempt:FireServer(unpack(args))
+          wait(0.000000000000001)
+        end
+    end
+  
+  function AutoAttack()
+        while _G.AutoAttack == true do
+          local args = {
+    [1] = "Punch",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.PVP.AttackAttempt:FireServer(unpack(args))
+          wait(0.000000000000001)
+        end
+    end
+  
+  function AutoSpeed()
+        while _G.Speed == true do
+          -- Karakterin hızını 1000 yapma
+local Player = game.Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+
+if Humanoid then
+    Humanoid.WalkSpeed = 1000
+end
+
+           wait(0.1)
+        end
+    end
+  
+    function AutoSellSummer()
+        while _G.AutoSellSummer == true do
+          game:GetService("ReplicatedStorage").Remotes.Tycoons.CollectMoney:InvokeServer()
+           wait(0.000000000000001)
+        end
+    end
+  
+  function autoTap()
+        while _G.autoTap == true do
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LiftWeight"):FireServer()
+            wait(0.000000000000001)
+        end
+    end
+
+    function autoSell()
+        while _G.autoSell == true do
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SellStrengthRequest"):FireServer()
+            wait(0.0000000000001)
+        end
+    end
+
+    function autoSummer()
+        while _G.autoSummer == true do
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Machines"):WaitForChild("AttemptMachineTraining"):InvokeServer()
+            wait(0.00000000000000900000000001)
+        end
+    end
+
+    function UseFly()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/lllllllollllll/Rime-hub-script/main/FLY"))()
+    end
+    
+   function TPTo(PCFrame)
+    local plr = game.Players.LocalPlayer;
+           if plr.Character then
+            plr.Character.HumanoidRootPart.CFrame = PCFrame
+        end
+    end
+  
+    --tablar
+
+    local FarmTab = Window:MakeTab({ Name = "Farm", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+    local MiscTab = Window:MakeTab({ Name = "Misc", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+    local PvPTab = Window:MakeTab({ Name = "  Pvp", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+
+    --toogleler
+    FarmTab:AddToggle({ Name = "Auto Lift", Default = false, Callback = function(Value)
+        _G.autoTap = Value
+        coroutine.wrap(autoTap)() -- autolift fonksiyonunu coroutine olarak çalıştır
+    end })
+
+    FarmTab:AddToggle({ Name = "Auto sell", Default = false, Callback = function(Value)
+        _G.autoSell = Value
+        coroutine.wrap(autoSell)() -- autoSell fonksiyonunu coroutine olarak çalıştır
+    end })
+     
+    MiscTab:AddToggle({ Name = "Auto Speed", Default = false, Callback = function(Value)
+        _G.Speed = Value
+        coroutine.wrap(AutoSpeed)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+    FarmTab:AddToggle({ Name = "Auto Summer sell", Default = false, Callback = function(Value)
+        _G.AutoSellSummer = Value
+        coroutine.wrap(AutoSellSummer)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+    FarmTab:AddToggle({ Name = "Auto Summer bike", Default = false, Callback = function(Value)
+        _G.autoSummer = Value
+        coroutine.wrap(autoSummer)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+   PvPTab:AddToggle({ Name = "Auto Damage ", Default = false, Callback = function(Value)
+        _G.AutoAttack = Value
+        coroutine.wrap(AutoAttack)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  PvPTab:AddToggle({ Name = "Auto Stomp ", Default = false, Callback = function(Value)
+        _G.AutoStomp = Value
+        coroutine.wrap(AutoStomp)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  PvPTab:AddToggle({ Name = "HitBox ", Default = false, Callback = function(Value)
+        _G.HitBox = Value
+        coroutine.wrap(Hitbox)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  FarmTab:AddToggle({ Name = "Capture flags ", Default = false, Callback = function(Value)
+        _G.Territory = Value
+        coroutine.wrap(Territorial)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  FarmTab:AddToggle({ Name = "Coin Farm ", Default = false, Callback = function(Value)
+        _G.AutoGem = Value
+        coroutine.wrap(AutoGem)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  FarmTab:AddToggle({ Name = "Gem Farm ", Default = false, Callback = function(Value)
+        _G.AutoMoney = Value
+        coroutine.wrap(AutoMoney)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  FarmTab:AddToggle({ Name = "Auto King :) ", Default = false, Callback = function(Value)
+        _G.AutoKing = Value
+        coroutine.wrap(AutoKing)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+
+    --buttons
+  
+    MiscTab:AddButton({ Name = "Fly", Callback = function(value)
+        _G.Fly = value
+        UseFly()
+    end })
+  
+  MiscTab:AddButton({ Name = "Destroy", Callback = function(value)
+        _G.DestroyGui = value
+        DestroyGui()
+    end })
+
+end
+
+OrionLib:Init()
