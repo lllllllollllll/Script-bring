@@ -20,18 +20,26 @@ if game.PlaceId == 4032944086 then
     _G.AutoGem = true
     _G.AutoKing = true
     _G.AutoAirDrop = true
+    _G.AutoBigGem = true
   --functions 
+   function AutoBigGem()
+    while _G.AutoBigGem == true do
+      local coinModel = game:GetService("Workspace").ConsumableSpawns.BigGemModel
+       wait(0.1)
+    end
+end
+  
   function AutoAirDrop()
     while _AutoAirDrop == true do
          TPTo(game:GetService("Workspace").Airdrops.Spawns.SpawnPart..CFrame)
-        wait(3)
+        wait(10)
     end
 end
   
   function AutoKing()
     while _G.AutoKing == true do
-         TPTo(game:GetService("Workspace").Islands.KOTHIsland.KothArena.KothArenabase.CFrame)
-        wait(3)
+         TPTo(game:GetService("Workspace").Islands.KOTHIsland.KothArena.KothArenaCracks.CFrame)
+        wait(5)
     end
 end
   
@@ -39,7 +47,7 @@ end
     while _G.AutoMoney == true do
         local gemModel = game:GetService("Workspace").ConsumableSpawns.GemModel
         TPTo(gemModel.CFrame)
-        wait(0.1)
+        wait(0.0000000001)
     end
 end
 
@@ -180,6 +188,7 @@ end
     local FarmTab = Window:MakeTab({ Name = "Farm", Icon = "rbxassetid://4483345998", PremiumOnly = false })
     local MiscTab = Window:MakeTab({ Name = "Misc", Icon = "rbxassetid://4483345998", PremiumOnly = false })
     local PvPTab = Window:MakeTab({ Name = "  Pvp", Icon = "rbxassetid://4483345998", PremiumOnly = false })
+    local GemTab = Window:MakeTab({ Name = "  Gem Farm", Icon = "rbxassetid://4483345998", PremiumOnly = false })
 
     --toogleler
     FarmTab:AddToggle({ Name = "Auto Lift", Default = false, Callback = function(Value)
@@ -222,7 +231,7 @@ end
         coroutine.wrap(Hitbox)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
   
-  FarmTab:AddToggle({ Name = "Capture flags ", Default = false, Callback = function(Value)
+  GemTab:AddToggle({ Name = "Capture flags ", Default = false, Callback = function(Value)
         _G.Territory = Value
         coroutine.wrap(Territorial)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
@@ -232,18 +241,23 @@ end
         coroutine.wrap(AutoGem)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
   
-  FarmTab:AddToggle({ Name = "Gem Farm ", Default = false, Callback = function(Value)
+  GemTab:AddToggle({ Name = "Gem Farm ", Default = false, Callback = function(Value)
         _G.AutoMoney = Value
         coroutine.wrap(AutoMoney)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
   
-  FarmTab:AddToggle({ Name = "Auto King :) ", Default = false, Callback = function(Value)
+  GemTab:AddToggle({ Name = "Auto King :) ", Default = false, Callback = function(Value)
         _G.AutoKing = Value
         coroutine.wrap(AutoKing)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
   
-  FarmTab:AddToggle({ Name = "Auto Air drop ", Default = false, Callback = function(Value)
-        _G.AutoAirDrop = Value
+  GemTab:AddToggle({ Name = "Auto BİG Gem ", Default = false, Callback = function(Value)
+        _G.AutoBigGem = Value
+        coroutine.wrap(AutoBigGem)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
+    end })
+  
+  GemTab:AddToggle({ Name = "Auto AirStike ", Default = false, Callback = function(Value)
+        _AutoAirDrop = Value
         coroutine.wrap(AutoAirDrop)() -- autoSummer fonksiyonunu coroutine olarak çalıştır
     end })
 
